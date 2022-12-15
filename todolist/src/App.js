@@ -1,4 +1,4 @@
-import { BrowserRouter , Switch, Route} from 'react-router-dom';
+import { BrowserRouter , Routes, Route} from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -10,11 +10,11 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <ToastContainer position='top-center' />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/add' component={AddEdit} />
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route path='/add' component={<AddEdit />} />
           <Route path='/update/:id' component={AddEdit} />
-        </Switch>
+        </Routes>
       </div>
     </BrowserRouter>
   );

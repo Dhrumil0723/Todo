@@ -18,7 +18,7 @@ const AddEdit = () => {
     const {id} = useParams();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/get/${id}`).then((resp) => setState({...resp.data[0]}))
+        axios.get(`http://172.93.101.179:5000/api/get/${id}`).then((resp) => setState({...resp.data[0]}))
     }, [id])
 
     const handleSubmit = (e) => {
@@ -27,7 +27,7 @@ const AddEdit = () => {
             toast.error("Please provide value into input filed");
         } else {
             if(!id) {
-                axios.post("http://localhost:5000/api/post", {
+                axios.post("http://172.93.101.179:5000/api/post", {
                 name
                 }).then(() => {
                     setState({ name: ""});
@@ -35,7 +35,7 @@ const AddEdit = () => {
                 .catch((err) => toast.error(err.response.data));
                 toast.success("Todo added");
             } else {
-                axios.put(`http://localhost:5000/api/update/${id}`, {
+                axios.put(`http://172.93.101.179:5000/api/update/${id}`, {
                 name
                 }).then(() => {
                     setState({ name: ""});

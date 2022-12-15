@@ -8,7 +8,7 @@ const Home = () => {
     const [data, setData] = useState([]);
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5000/api/get");
+        const response = await axios.get("http://172.93.101.179:5000/api/get");
         setData(response.data);
     };
 
@@ -18,7 +18,7 @@ const Home = () => {
 
     const deleteContact = (id) => {
         if(window.confirm("are you sure you want to delete?")){
-            axios.delete(`http://localhost:5000/api/remove/${id}`);
+            axios.delete(`http://172.93.101.179:5000/api/remove/${id}`);
             toast.success("Deleted");
             setTimeout(() => loadData(), 500);
         }
